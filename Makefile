@@ -1,6 +1,6 @@
 CC = cc
 
-LIBX = -Lminilibx-linux -lmlx_Linux -lX11 -lXext
+LIBX = -Lminilibx-linux -lmlx_Linux -lX11 -lXext -lm
 LIBFT = -Llibft -lft
 
 CFLAGS = -Wall -Wextra -Werror
@@ -9,7 +9,9 @@ SRC = srcs/main.c \
 srcs/init.c srcs/array_of_str_to_int.c \
 srcs/print_any_array.c srcs/free_any_array.c \
 srcs/valid_input.c srcs/any_test_on_str_array.c \
-srcs/from_file_to_array.c
+srcs/from_file_to_array.c srcs/same_number_of_column_in_array.c \
+srcs/point.c srcs/print.c srcs/draw_line.c srcs/point_2d.c
+
 
 HEADERS = includes/fdf.h
 BUILD_DIR = build

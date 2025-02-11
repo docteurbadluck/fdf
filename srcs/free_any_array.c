@@ -6,15 +6,14 @@
 /*   By: tdeliot <tdeliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:45:37 by tdeliot           #+#    #+#             */
-/*   Updated: 2025/02/03 11:47:47 by tdeliot          ###   ########.fr       */
+/*   Updated: 2025/02/11 09:33:58 by tdeliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-static void free_array_of_int(int *** int_array);
+static void	free_array_of_int(int ***int_array);
 static void	free_array_of_str(char ***array);
-
 
 void	free_any_array(void *array, int type)
 {
@@ -31,7 +30,6 @@ void	free_any_array(void *array, int type)
 		int_array = array;
 		free_array_of_int(int_array);
 	}
-	
 }
 
 static void	free_array_of_str(char ***array)
@@ -43,7 +41,7 @@ static void	free_array_of_str(char ***array)
 	while (array[i])
 	{
 		j = 0;
-		while(array[i][j])
+		while (array[i][j])
 		{
 			free(array[i][j]);
 			j++;
@@ -54,15 +52,16 @@ static void	free_array_of_str(char ***array)
 	free(array);
 }
 
-static void free_array_of_int(int *** int_array)
+static void	free_array_of_int(int ***int_array)
 {
-	int i = 0;
-	int j = 0;
+	int	i;
+	int	j;
 
+	i = 0;
+	j = 0;
 	while (int_array[i] != NULL)
 	{
 		j = 0;
-
 		while (int_array[i][j] != NULL)
 		{
 			free(int_array[i][j]);

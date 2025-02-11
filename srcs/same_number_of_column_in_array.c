@@ -1,47 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   any_test_on_str_array.c                            :+:      :+:    :+:   */
+/*   same_number_of_column_in_array.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tdeliot <tdeliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 12:17:00 by tdeliot           #+#    #+#             */
-/*   Updated: 2025/02/11 09:30:00 by tdeliot          ###   ########.fr       */
+/*   Created: 2025/02/04 09:57:17 by tdeliot           #+#    #+#             */
+/*   Updated: 2025/02/11 10:19:32 by tdeliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int	test_on_array_of_array_of_str(char ***array_array_str, int (*f)(char *str))
+int	same_number_of_column_in_str_array(char ***array_str)
 {
 	int	i;
 	int	j;
+	int	flag;
 
+	j = 0;
 	i = 0;
-	while (array_array_str[i])
-	{
-		j = 0;
-		while (array_array_str[i][j])
-		{
-			if (f(array_array_str[i][j]))
-				return (-1);
-			j++;
-		}
-		i++;
-	}
-	if (i == 0)
-		return (-1);
-	return (0);
-}
-
-int	any_test_on_str_array(char **array_str, int (*f)(char *str))
-{
-	int	i;
-
-	i = 0;
+	while (array_str[0][j])
+		j++;
+	flag = j;
 	while (array_str[i])
 	{
-		if (f(array_str[i]))
+		j = 0;
+		while (array_str[i][j])
+		{
+			j++;
+		}
+		if (flag != j)
 			return (-1);
 		i++;
 	}
