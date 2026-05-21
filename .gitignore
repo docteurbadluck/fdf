@@ -1,0 +1,3 @@
+build
+libft/*.o
+libft/*.a

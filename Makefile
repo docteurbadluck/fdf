@@ -22,7 +22,10 @@ OBJ_FILES = $(SRC:srcs/%.c=$(BUILD_DIR)/%.o)
 NAME = $(BUILD_DIR)/fdf
 
 # Règle par défaut pour créer l'exécutable
-all: lib $(BUILD_DIR) $(NAME) 
+all: lib $(BUILD_DIR) $(NAME)
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
 	
 
 $(NAME): $(OBJ_FILES)
@@ -43,6 +46,7 @@ clean:
 # Nettoyage complet (objets + exécutable dans build/)
 fclean: clean
 	rm -f $(NAME)
+	make -C libft fclean
 
 # Rebuild complet
 re: fclean all
